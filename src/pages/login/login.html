@@ -1,0 +1,26 @@
+<ion-content padding>
+
+  <header class="title center">
+      Login
+  </header>
+
+  <ion-list>
+
+    <ion-item>
+      <ion-label floating>Badass Username</ion-label>
+      <ion-input type="email" [(ngModel)]="user.username"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Link to your Bio if you need</ion-label>
+      <ion-input type="email" [(ngModel)]="user.bio"></ion-input>
+    </ion-item>
+
+  </ion-list>
+
+<div padding>
+  <button block ion-button [disabled]="!user.username" (click)="Login()">Get In</button>
+</div>
+
+
+</ion-content>

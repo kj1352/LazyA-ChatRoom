@@ -1,14 +1,36 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
+  <ion-navbar class="header-bar">
+      <ion-title>
+        #ChatRoom
+      </ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+<ion-content padding #content>
+
+    <ion-card class="sender" *ngFor="let chat of chats"
+      [ngClass]="{'recieve' : user.username!=chat.author}"
+      (click)="visitBio(chat.link)">
+      <ion-card-header>
+        <span *ngIf="user.username==chat.author">
+          Me
+        </span>
+        <span *ngIf="user.username!=chat.author">
+          {{ chat.author }}
+        </span>
+      </ion-card-header>
+      <ion-card-content>
+        {{ chat.text }}
+      </ion-card-content>
+    </ion-card>
+
+
+
+    <div class="input-box">
+      <textarea [(ngModel)]="message.text"></textarea>
+      <button ion-button (click)="Send()">
+        SEND
+      </button>
+    </div>
+
 </ion-content>
